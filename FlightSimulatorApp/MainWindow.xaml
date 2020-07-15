@@ -1,0 +1,73 @@
+﻿<Window x:Class="FlightSimulatorApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:ViewJoystickAndSliders="clr-namespace:FlightSimulatorApp.View"
+        xmlns:ViewDashBoard="clr-namespace:FlightSimulatorApp.View"
+        xmlns:ViewMap="clr-namespace:FlightSimulatorApp.View"
+        xmlns:ConnectionToUser="clr-namespace:FlightSimulatorApp.View"
+        xmlns:MessageToUser="clr-namespace:FlightSimulatorApp.View"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlightSimulatorApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="670" Width="1010">
+
+    <Grid Background="#FF5B5959" Margin="0,0,-0.333,-6.333">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="148"/>
+            <RowDefinition Height="Auto" MinHeight="842.667"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="MapLabelBackGound" Background="#FFD9D3D3" Margin="10,204,83.333,762.333" Width="580"/>
+        <ViewDashBoard:DashBoard Margin="666,-10,1061.667,938.333" RenderTransformOrigin="0.5,0.5" x:Name="Dash" Grid.ColumnSpan="2">
+            <ViewDashBoard:DashBoard.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="0.905" ScaleX="0.905"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ViewDashBoard:DashBoard.RenderTransform>
+        </ViewDashBoard:DashBoard>
+        <Label Content="Throttle" HorizontalAlignment="Left" Margin="96,0,0,173.667" VerticalAlignment="Bottom" FontFamily="Bell MT" FontSize="22" FontWeight="Bold" Foreground="#FFE8F2EB" Grid.Column="1" Height="35" Grid.Row="1" Width="93"/>
+        <Label Content="Rudder" HorizontalAlignment="Left" Margin="377,0,0,173.667" VerticalAlignment="Bottom" FontFamily="Bell MT" FontSize="22" FontWeight="Bold" Foreground="#FFE8F2EB" Grid.Column="1" Height="35" Grid.Row="1" Width="82"/>
+
+        <Label Content="Alieron" Grid.Column="1" HorizontalAlignment="Left" Margin="228,29,0,0" VerticalAlignment="Top" Foreground="#FF8E4F4F" FontWeight="Bold" FontSize="11" RenderTransformOrigin="0.5,0.5" Grid.Row="1" Height="24" Width="48">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0
+                                     "/>
+                    <TranslateTransform X="7.827" Y="-4.888"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <ConnectionToUser:ConnectionView x:Name="ConnectionUser" Margin="15,103,22.667,1113"/>
+        <Label x:Name="LabelXLetterJoy" Content="X:" HorizontalAlignment="Left" Margin="331,10,0,0" VerticalAlignment="Top" Height="25" Width="22" Background="#FF5C5959" Foreground="#FF2BE65D" Grid.Column="1" Grid.Row="1" FontWeight="Bold"/>
+        <Label x:Name="LabelYLetterJoy" Content="Y:" HorizontalAlignment="Left" Margin="358,10,0,0" VerticalAlignment="Top" Height="25" Width="20" Background="#FF5C5959" Foreground="#FF2BE65D" Grid.Column="1" Grid.Row="1" FontWeight="Bold"/>
+        <Label x:Name="InfoXJoy" Content="0.0" HorizontalAlignment="Left" Margin="329,27,0,0" VerticalAlignment="Top" Height="21" Width="24" Foreground="#FF2BE65D" Grid.Column="1" Grid.Row="1" FontSize="10"/>
+
+        <MessageToUser:MessageView Margin="-2,7,1416.667,836" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+
+        <ViewJoystickAndSliders:JoystickAndSliders x:Name="JoyAndSli" RenderTransformOrigin="0.504,0.526" Height="300" Width="300" Margin="0.667,331,1176.667,758.333" Grid.Column="1">
+            <ViewJoystickAndSliders:JoystickAndSliders.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1.166" ScaleX="1.166"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ViewJoystickAndSliders:JoystickAndSliders.RenderTransform>
+
+        </ViewJoystickAndSliders:JoystickAndSliders>
+
+        <ViewMap:Map Height="405" Width="565" Margin="18,212,90.333,772.333" x:Name="myMap"/>
+
+    </Grid>
+
+
+</Window>
